@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-text-field></v-text-field>
+    <v-jsf v-model="model" :schema="schema" :options="options"></v-jsf>
   </v-container>
 </template>
 
@@ -8,6 +9,17 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'VuetifyTestPage',
+  data: () => ({
+    valid: false,
+    model: {},
+    schema: {
+      type: 'object',
+      properties: {
+        stringProp: { type: 'string' },
+        colorProp: { type: 'string', 'x-display': 'color-picker' },
+      }
+    }
+  })
 })
 </script>
